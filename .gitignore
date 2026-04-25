@@ -1,0 +1,55 @@
+# OS/editor noise
+.DS_Store
+.vscode/
+*.code-workspace
+.idea/
+.history/
+
+# Secrets and local environment files
+.env
+.env.*
+!.env.example
+!.env.template
+!.env.lab.example
+!.env.*.example
+
+# Python local artifacts
+.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+*.pyo
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+*.egg-info/
+
+# Node local artifacts
+node_modules/
+dist/
+build/
+coverage/
+*.tsbuildinfo
+src/env-config.js
+
+# Local MZinga runtime data
+local-tenant/
+media/
+files/
+uploads/
+custom-entities/
+database/
+messagebus/
+redis-data/
+tmp/
+.temp/
+*.dump
+*.rdb
+
+# Nested repositories/local backups. The LABS repo should be the only Git repo.
+**/.git/
+**/.git-local-backup/
+**/.git-disabled/
