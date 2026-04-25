@@ -30,8 +30,12 @@ const Communications: CollectionConfig = {
   },
   hooks: {
     afterChange: [
-      async ({ doc }) => {
+      async ({ doc, operation }) => {
         if (process.env.COMMUNICATIONS_EXTERNAL_WORKER === "true") {
+          if (operation !== "create") {
+            return doc;
+          }
+
           if (doc.status === "pending") {
             return doc;
           }
