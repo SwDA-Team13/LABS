@@ -1,0 +1,29 @@
+# Python environments and caches
+.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Local config and secrets
+.env
+.env.*
+!.env.example
+
+# Test, build, and coverage output
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+dist/
+build/
+*.egg-info/
+
+# Logs and editor files
+*.log
+logs/
+.DS_Store
+.idea/
+.vscode/
