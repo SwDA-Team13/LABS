@@ -77,3 +77,23 @@ Edit `lab2-worker-events/.env` and set `MZINGA_EMAIL` and `MZINGA_PASSWORD` to t
 ## Check
 
 Open `http://localhost:3000/admin`, create a user, then create a Communication for that user. With the REST worker, the worker should poll the API and mark the Communication `sent`. With the event worker, the worker should receive the RabbitMQ event immediately and mark the Communication `sent`. If MailHog is running, the email should appear at `http://localhost:8025`.
+
+## Observable Worker
+
+For Lab 3, stop the Lab 1 and Lab 2 workers if they are running. Only the observable worker should process Communications.
+
+Keep MZinga, Docker services, MailHog, and Jaeger running, then start the observable worker:
+
+```sh
+cd lab3-worker-observable
+cp -n .env.example .env
+source ../.venv/bin/activate
+pip install -r requirements.txt
+python worker.py
+```
+
+Edit `lab3-worker-observable/.env` and set `MZINGA_EMAIL` and `MZINGA_PASSWORD` to the same local admin user used in MZinga.
+
+## Observable Worker Check
+
+Open `http://localhost:3000/admin` and create a Communication. The worker should mark it `sent`, the email should appear in MailHog at `http://localhost:8025`, traces should appear in Jaeger at `http://localhost:16686` under service `email-worker`, and worker metrics should be available at `http://localhost:8000/metrics`.
