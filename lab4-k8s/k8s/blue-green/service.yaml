@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: webapp
+  namespace: mzinga-lab4
+  labels:
+    app: webapp
+    release-style: blue-green
+spec:
+  selector:
+    app: webapp
+    slot: blue
+  ports:
+    - name: http
+      protocol: TCP
+      port: 80
+      targetPort: http
